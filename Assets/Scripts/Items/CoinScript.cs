@@ -7,7 +7,6 @@ public class CoinScript : MonoBehaviour
     private Rigidbody2D rigidkropp;
     private BoxCollider2D boxCollider;
     private SpriteRenderer coinSpriteRenderer;
-    public GameObject coinPickedUp;
     [SerializeField] private LayerMask playerMask;
     private GameController gameController;
     private SFXController sfxController;
@@ -41,7 +40,6 @@ public class CoinScript : MonoBehaviour
     {
         if (IsTouchingPlayer())
         {
-            Instantiate(coinPickedUp, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
             gameController.points += points;
             sfxController.PlayCoinPickup();
             Destroy(gameObject);
@@ -60,7 +58,6 @@ public class CoinScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Instantiate(coinPickedUp, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
             gameController.points += points;
             sfxController.PlayCoinPickup();
             Destroy(gameObject);

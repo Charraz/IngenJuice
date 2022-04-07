@@ -8,11 +8,8 @@ public class RangedWeaponController : MonoBehaviour
 
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public GameObject muzzleFlash;
     public GameObject myPlayer;
     public GameObject rocketPrefab;
-    public Animator gunAnimator;
-    public ParticleSystem bulletShells;
     private bool weapon1CD;
     private bool weapon2CD;
 
@@ -55,11 +52,6 @@ public class RangedWeaponController : MonoBehaviour
             weapon1CD = true;
             Invoke("Weapon1CDActive", 0.2f);
             
-        }
-
-        else if (Input.GetButtonUp("Fire1"))
-        {
-            bulletShells.Stop();
         }
 
         if (Input.GetButtonDown("Fire2") && weapon2CD == false && playerController.playerHealth > 0)
@@ -122,10 +114,7 @@ public class RangedWeaponController : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, transform.rotation);
-        Instantiate(muzzleFlash, firePoint.position, firePoint.rotation);
-        gunAnimator.SetTrigger("Shoot");
         sfxController.PlayBulletShoot();
-        bulletShells.Play();
     }
 
     void ShootRocket()

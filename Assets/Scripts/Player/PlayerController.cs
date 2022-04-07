@@ -25,10 +25,6 @@ public class PlayerController : MonoBehaviour
     bool canDoubleJump;
 
     //Partikelvariabler
-    public GameObject dustEffect;
-    public GameObject doubleJumpPoofEffect;
-    private bool coroutineAllowed;
-    private bool particleCD;
 
     //PlayerHealth
     public float playerHealth;
@@ -68,7 +64,6 @@ public class PlayerController : MonoBehaviour
         canDoubleJump = false;
         playerHealth = 5;
         iFrame = false;
-        particleCD = false;
         Time.timeScale = 1f;
     }
 
@@ -84,7 +79,6 @@ public class PlayerController : MonoBehaviour
             //Alternativ lösning i ifsatsen efter getbuttondown: Mathf.Abs(playerRigidbody.velocity.y) < 0.001)
             hasJumped = false;
             animation.SetBool("IsJumping", false);
-            coroutineAllowed = true;
 
             if (Input.GetButtonDown("Jump"))
             {
@@ -98,11 +92,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (!IsGrounded())
         {
-            coroutineAllowed = false;
             if (Input.GetButtonDown("Jump")  && hasJumped == false)
             {
                 canDoubleJump = true;
-                Instantiate(doubleJumpPoofEffect, new Vector3(transform.position.x, transform.position.y + -0.5f, transform.position.z), transform.rotation);
             }
         }
 
@@ -130,11 +122,6 @@ public class PlayerController : MonoBehaviour
             playerRigidbody.velocity = new Vector2(moveSpeed, playerRigidbody.velocity.y);
             playerSprite.flipX = false;
             //transform.eulerAngles = new Vector3(0, 0, 0);
-            if (coroutineAllowed == true)
-            {
-                StartCoroutine("SpawnDust");
-                coroutineAllowed = false;
-            }
         }
 
         else if (moveHorizontal < -0.1f && playerHealth > 0)
@@ -145,13 +132,6 @@ public class PlayerController : MonoBehaviour
             playerRigidbody.velocity = new Vector2(moveSpeed * -1, playerRigidbody.velocity.y);
             playerSprite.flipX = true;
             //transform.eulerAngles = new Vector3(0, 180, 0);
-
-            if (coroutineAllowed == true)
-            {
-                StartCoroutine("SpawnDust");
-                coroutineAllowed = false;
-            }
-
         }
 
         else if (moveHorizontal == 0 && playerHealth > 0)
@@ -160,8 +140,6 @@ public class PlayerController : MonoBehaviour
             //Player movement
 
                 playerRigidbody.velocity = new Vector2(0f, playerRigidbody.velocity.y);
-                StopCoroutine("SpawnDust");
-                coroutineAllowed = true;
         }
 
         if (canJump == true && playerHealth > 0)
@@ -256,16 +234,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    IEnumerator SpawnDust()
-    {
-        while(IsGrounded() && particleCD == false)
-        {
-            Instantiate(dustEffect, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), dustEffect.transform.rotation);
-            particleCD = true;
-            Invoke("ParticleCD", 0.25f);
-            yield return new WaitForSeconds(0.25f);
-        }
-    }
 
     private bool IsGrounded()
     {
@@ -282,11 +250,6 @@ public class PlayerController : MonoBehaviour
     private void iFrameCD()
     {
         iFrame = false;
-    }
-
-    private void ParticleCD()
-    {
-        particleCD = false;
     }
 
     private void resetMaterial()
