@@ -226,11 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc3b0c081df6be4caa0042317bcb94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onDeathBloodAnimation: {fileID: 7727960266939480054, guid: 7186f0bcb1add39479e320c9f1d62fde, type: 3}
+  onDeathBloodAnimation: {fileID: 2764614986899017906, guid: 848e89d3a99829648a92bca0fc36823c, type: 3}
   spitBulletPrefab: {fileID: 6699414634871007293, guid: 2cf518fe1848edf49958570877d2c6b0, type: 3}
   shotPosition: {fileID: 1420584275}
-  onDeathBloodParticleSystem: {fileID: 1907627891148627254, guid: cace8b37766378b48acf4dc11b32a39f, type: 3}
-  shotSpitPrefab: {fileID: 1552685950231211276, guid: 58b6fa0733f8e3542bb6a23519c874b2, type: 3}
   onDeathCoin: {fileID: 9032735162423030646, guid: 8d90896061908bf48a249acb518ddc9d, type: 3}
   onDeathSeveredHead: {fileID: 7416036657722849350, guid: 1989a794fac100a449c185a3e63d0d63, type: 3}
   points: 10

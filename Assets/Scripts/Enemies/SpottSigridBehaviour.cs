@@ -8,17 +8,13 @@ public class SpottSigridBehaviour : MonoBehaviour
     public GameObject spitBulletPrefab;
     private Rigidbody2D rigidkropp;
     public Transform shotPosition;
-    public GameObject onDeathBloodParticleSystem;
-    public GameObject shotSpitPrefab;
     public GameObject onDeathCoin;
-    public GameObject onDeathSeveredHead;
     private State state = State.SpottSigridWalk;
     private SpriteRenderer spriterenderer;
     private Material matWhite; //Används för att blinka vitt när fienden träffas av skott
     private Material matDefault; //Återställer rhinons materail till default
     private new Animator animation;
     public int points;
-    private int spawnDeadHeadOrNot;
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private LayerMask wallMask;
 
@@ -47,7 +43,6 @@ public class SpottSigridBehaviour : MonoBehaviour
         playerController = PlayerController.InstanceOfPlayer;
         gameController = GameController.InstanceOfGame;
         sfxController = SFXController.InstanceOfSFX;
-        spawnDeadHeadOrNot = Random.Range(1, 2);
 
         canShoot = false;
         moveSpeed = -2;
@@ -125,14 +120,6 @@ public class SpottSigridBehaviour : MonoBehaviour
         {
             Instantiate(spitBulletPrefab, shotPosition.position, shotPosition.rotation);
             sfxController.PlaySigridShoot();
-            if (movingLeft == false)
-            {
-                Instantiate(shotSpitPrefab, new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z), shotSpitPrefab.transform.rotation = Quaternion.Euler(0f, 90f, -90f));
-            }
-            else if (movingLeft == true)
-            {
-                Instantiate(shotSpitPrefab, new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z), shotSpitPrefab.transform.rotation = Quaternion.Euler(180f, 90f, -90f));
-            }
             canShoot = false;
         }
     }
@@ -155,12 +142,7 @@ public class SpottSigridBehaviour : MonoBehaviour
     private void killSelf()
     {
         Instantiate(onDeathBloodAnimation, transform.position = new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-        Instantiate(onDeathBloodParticleSystem, transform.position, Quaternion.identity);
         Instantiate(onDeathCoin, transform.position, Quaternion.identity);
-        if (spawnDeadHeadOrNot == 1)
-        {
-            Instantiate(onDeathSeveredHead, transform.position, Quaternion.identity);
-        }
         sfxController.PlaySigridDeath();
         Destroy(gameObject);
     }
