@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5979a3c34cf48a49a2e10820d4867fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodSplash: {fileID: 7727960266939480054, guid: 7186f0bcb1add39479e320c9f1d62fde, type: 3}
   timeToDirectionChange: 2.5
   moveSpeed: 3
 --- !u!50 &5150645748482979961
