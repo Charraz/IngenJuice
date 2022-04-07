@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6122729996523752105}
   - component: {fileID: 6122729996523752110}
-  - component: {fileID: 957101888}
   m_Layer: 0
   m_Name: Fog_2
   m_TagString: Untagged
@@ -84,18 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &957101888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6122729996523752104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3229f7961e9095429d139db145e11bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6122729996600665152
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +296,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6122729997272456187}
   - component: {fileID: 6122729997272456184}
-  - component: {fileID: 2033590311}
   m_Layer: 0
   m_Name: Fog_1
   m_TagString: Untagged
@@ -383,18 +369,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2033590311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6122729997272456186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3229f7961e9095429d139db145e11bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6122729997397800236
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +543,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6122729997588056154}
   - component: {fileID: 6122729997588056155}
-  - component: {fileID: 1702818425}
   m_Layer: 0
   m_Name: Clouds
   m_TagString: Untagged
@@ -643,18 +616,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1702818425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6122729997588056133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8439a663b1c59a14b8727387b300f2d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6122729997616492739
 GameObject:
   m_ObjectHideFlags: 0
