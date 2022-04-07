@@ -7,7 +7,6 @@ public class TreasureChest : MonoBehaviour
     private Rigidbody2D rigidkropp;
     private BoxCollider2D boxCollider;
     public GameObject chestPickedUp;
-    public GameObject coinParticleSystem;
     [SerializeField] private LayerMask playerMask;
     private GameController gameController;
     public int points;
@@ -30,7 +29,6 @@ public class TreasureChest : MonoBehaviour
         if (IsTouchingPlayer())
         {
             Instantiate(chestPickedUp, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
-            Instantiate(coinParticleSystem, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation = Quaternion.Euler(-90f, 0f, 0f));
             chestSpawner.chestExists = false;
             gameController.points += points;
             sfxController.StopChestActive();
@@ -56,7 +54,6 @@ public class TreasureChest : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Instantiate(chestPickedUp, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
-            Instantiate(coinParticleSystem, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation = Quaternion.Euler(-90f, 0f, 0f));
             chestSpawner.chestExists = false;
             gameController.points += points;
             sfxController.StopChestActive();

@@ -9,11 +9,10 @@ public class PlayerRocketController : MonoBehaviour
     public GameObject particleExplosion;
     public GameObject explosionRadius;
     private SFXController sfxController;
-    private CinemachineScreenShake cinemachineScreenShake;
 
     private void Awake()
     {
-        cinemachineScreenShake = CinemachineScreenShake.InstanceOfCinemachine;
+
     }
 
     // Start is called before the first frame update
@@ -34,10 +33,9 @@ public class PlayerRocketController : MonoBehaviour
 
     void Death()
     {
-        particleExplosion = Instantiate(particleExplosion, new Vector2(transform.position.x, transform.position.y + 1.6f), Quaternion.identity);
+        particleExplosion = Instantiate(particleExplosion, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
         explosionRadius = Instantiate(explosionRadius, transform.position, Quaternion.identity);
         sfxController.PlayGrenadeExplosion();
-        cinemachineScreenShake.ShakeCamera(4f, 0.3f);
         Destroy(gameObject);
     }
 
