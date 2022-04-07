@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidkropp: {fileID: 0}
   animation: {fileID: 0}
-  onDeathBloodAnimation: {fileID: 7727960266939480054, guid: 7186f0bcb1add39479e320c9f1d62fde, type: 3}
+  onDeathBloodAnimation: {fileID: 2764614986899017906, guid: 848e89d3a99829648a92bca0fc36823c, type: 3}
   onDeathBloodParticleSystem: {fileID: 1907627891148627254, guid: cace8b37766378b48acf4dc11b32a39f, type: 3}
   onDeathCoin: {fileID: 9032735162423030646, guid: 8d90896061908bf48a249acb518ddc9d, type: 3}
   onDeathSeveredHead: {fileID: 7166336188950628923, guid: ebb8c5d391ffcf6478c70cfbcae0718a, type: 3}

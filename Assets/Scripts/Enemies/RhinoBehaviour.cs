@@ -9,20 +9,16 @@ public class RhinoBehaviour : MonoBehaviour
     public new Animator animation;
     SpriteRenderer spriterenderer;
     public GameObject onDeathBloodAnimation;
-    public GameObject onDeathBloodParticleSystem;
     public GameObject onDeathCoin;
-    public GameObject onDeathSeveredHead;
     private Material matWhite; //Används för att blinka vitt när fienden träffas av skott
     private Material matRed; //Används för att göra rhinon röd när han är arger
     private Material matDefault; //Återställer rhinons materail till default
     private PlayerController playerController;
     private GameController gameController;
-    private CinemachineScreenShake cinemachineScreenShake;
     public int points;
     private SFXController sfxController;
     private bool falling = false;
     private bool matResetBool = true;
-    private int spawnDeadHeadOrNot;
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private LayerMask wallMask;
 
@@ -44,9 +40,7 @@ public class RhinoBehaviour : MonoBehaviour
         spriterenderer = gameObject.GetComponent<SpriteRenderer>();
         matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
         matRed = Resources.Load("RedMorning", typeof(Material)) as Material;
-        cinemachineScreenShake = CinemachineScreenShake.InstanceOfCinemachine;
         matDefault = spriterenderer.material;
-        spawnDeadHeadOrNot = Random.Range(1, 2);
 
         moveSpeed = -3;
         movingLeft = true;
@@ -181,7 +175,6 @@ public class RhinoBehaviour : MonoBehaviour
     private void rhinoWallOrPlayerHit()
     {
         sfxController.PlayRhinoChargeHit();
-        cinemachineScreenShake.ShakeCamera(5f, 0.2f);
 
         if (movingLeft == true)
         {
@@ -214,12 +207,7 @@ public class RhinoBehaviour : MonoBehaviour
     private void killSelf()
     {
         Instantiate(onDeathBloodAnimation, transform.position = new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-        Instantiate(onDeathBloodParticleSystem, transform.position, Quaternion.identity);
         Instantiate(onDeathCoin, transform.position, Quaternion.identity);
-        if (spawnDeadHeadOrNot == 1)
-        {
-            Instantiate(onDeathSeveredHead, transform.position, Quaternion.identity);
-        }
         sfxController.PlayRhinoDeath();
         Destroy(gameObject);
     }
