@@ -4954,3 +4954,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   points: 500
+  pointsObject: {fileID: 7103854488955369832, guid: 27dcae7aed99f7f4b94301469c0e83eb, type: 3}

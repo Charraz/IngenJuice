@@ -12,6 +12,7 @@ public class TreasureChest : MonoBehaviour
     public int points;
     private SFXController sfxController;
     private ChestSpawner chestSpawner;
+    public GameObject pointsObject;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class TreasureChest : MonoBehaviour
         if (IsTouchingPlayer())
         {
             Instantiate(chestPickedUp, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+            Instantiate(pointsObject, transform.position, Quaternion.identity);
             chestSpawner.chestExists = false;
             gameController.points += points;
             sfxController.StopChestActive();
@@ -54,6 +56,7 @@ public class TreasureChest : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Instantiate(chestPickedUp, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+            Instantiate(pointsObject, transform.position, Quaternion.identity);
             chestSpawner.chestExists = false;
             gameController.points += points;
             sfxController.StopChestActive();
